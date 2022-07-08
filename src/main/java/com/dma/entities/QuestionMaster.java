@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -27,9 +28,9 @@ public class QuestionMaster {
 	@Column(name = "question_name")
 	private String question_name;
 	
-	@Transient
-	@ManyToOne
-	private SectionMaster section;
+//	@Transient
+//	@ManyToOne
+//	private SectionMaster section;
 	
 	
 }
