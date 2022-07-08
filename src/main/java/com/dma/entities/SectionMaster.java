@@ -33,6 +33,6 @@ public class SectionMaster {
 	@OneToMany
 	@JoinTable(name = "section_questionmaster",
 	joinColumns = @JoinColumn(name = "section_id"),
-    inverseJoinColumns = @JoinColumn(name = "question_id"))
+    inverseJoinColumns = @JoinColumn(name = "section_questions_question_id"))
 	private List<QuestionMaster> questions;
 }

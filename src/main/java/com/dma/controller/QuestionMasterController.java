@@ -18,8 +18,10 @@ public class QuestionMasterController {
 	@Autowired
 	private QuestionMasterRepository questionMasterRepository;
 	
-	@PostMapping("/addQuestion")
+	@PostMapping("/addQuestion") 
 	public QuestionMaster createQuestion(@RequestBody QuestionMaster questionMaster) {
 		return questionMasterRepository.save(questionMaster);
 	}
+	
+	
 }
