@@ -23,5 +23,5 @@ public class AnswerMaster {
 	private long answer_id;
 	
 	@Column(name = "answer_name")
-	private String answer_name;
+	private AnswerType answer_name;
 }
