@@ -28,9 +28,9 @@ public class QuestionMaster {
 	@Column(name = "question_name")
 	private String question_name;
 	
-//	@Transient
-//	@ManyToOne
-//	private SectionMaster section;
+
+	@ManyToOne
+	private SectionMaster section;
 	
 	
 }
