@@ -1,7 +1,7 @@
 
 
 ### ignore files ###
-src/main/resources/application.properties
+*.properties
 
 HELP.md
 target/
