@@ -12,6 +12,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,5 +36,6 @@ public class SectionMaster {
 	@JoinTable(name = "section_questionmaster",
 	joinColumns = @JoinColumn(name = "section_id"),
     inverseJoinColumns = @JoinColumn(name = "section_questions_question_id"))
+	@JsonManagedReference
 	private List<QuestionMaster> questions;
 }
