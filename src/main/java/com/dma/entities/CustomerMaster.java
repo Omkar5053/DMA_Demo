@@ -23,4 +23,10 @@ public class CustomerMaster {
 	
 	@Column(name = "customer_name")
 	private String customer_name;
+	@Column(name="email")
+	private String email;
+	@Column(name="phone")
+	private String phone;
+	@Column(name="company")
+	private String company;
 }
