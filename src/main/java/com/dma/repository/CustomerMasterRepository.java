@@ -7,4 +7,5 @@ import com.dma.entities.CustomerMaster;
 
 public interface CustomerMasterRepository extends JpaRepository<CustomerMaster, Long> {
 
+	public CustomerMaster findCustomerMasterByEmail(String email);
 }

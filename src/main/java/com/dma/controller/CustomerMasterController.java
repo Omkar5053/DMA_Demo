@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,20 +43,14 @@ public class CustomerMasterController {
 	public ResponseEntity<String> addCustomer(@RequestBody CustomerMaster customer)
 	{
 		customerMasterRepository.save(customer);
-		return new ResponseEntity<String>("Customer added..",HttpStatus.CREATED);
+		return new ResponseEntity<String>("Customer added..",HttpStatus.OK);
 	}
 	
-//	@PostMapping(path = "/addCustomer")
-//	public ResponseEntity<String> addCustomer(@ModelAttribute CustomerMaster customer)
-//	{
-//		long id = customer.getCustomer_id();
-//		String name = customer.getCustomer_name();
-//		System.out.println(id);
-//		System.out.println(name);
-//		customerMasterRepository.save(customer);
-//		return new ResponseEntity<String>("Customer added..",HttpStatus.CREATED);
-//		 
-//	}
+	@GetMapping("/getCustomerByEmail/{email}")
+	public CustomerMaster getCustomerByEmailId(@PathVariable (value="email") String email)
+	{
+		return customerMasterRepository.findCustomerMasterByEmail(email);
+	}
 	
 
 	

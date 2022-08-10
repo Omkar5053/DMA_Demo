@@ -23,7 +23,7 @@ public class CustomerMaster {
 	
 	@Column(name = "customer_name")
 	private String customer_name;
-	@Column(name="email")
+	@Column(name="email",unique = true)
 	private String email;
 	@Column(name="phone")
 	private String phone;

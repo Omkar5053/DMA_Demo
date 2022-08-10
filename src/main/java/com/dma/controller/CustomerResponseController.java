@@ -1,9 +1,13 @@
 package com.dma.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,12 +44,18 @@ public class CustomerResponseController {
 	{
 		CustomerResponseMaster response = new CustomerResponseMaster();
 		
-		response.setAnswer(answerMasterRepository.getById(answer_id));
+		response.setAnswer(answerMasterRepository.getById(answer_id+1));
 		response.setQuestion(questionMasterRepository.getById(question_id));
 		response.setCustomer(customerMasterRepository.getById(customer_id));
 		response.setSection(sectionMasterRepository.getById(section_id));
 		
 		customerResponseRepository.save(response);
 		return new ResponseEntity<String>("Response added..",HttpStatus.OK);
+	}
+	
+	@GetMapping("/getAllResponses/{section_id}")
+	public List<CustomerResponseMaster> getResponses(@PathVariable (value="section_id") long section_id)
+	{
+		return customerResponseRepository.findCustomerResponseMastersBySectionId(section_id);
 	}
 }
